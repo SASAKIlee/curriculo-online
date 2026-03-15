@@ -1,0 +1,153 @@
+/* --- UNIVERSO DO PAPEL (Configuração do PDF) --- */
+@page {
+    size: A4;
+    margin: 1.5cm; /* Margem ligeiramente menor para caber melhor o conteúdo */
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #2b2b2b; /* Um cinza muito escuro é mais elegante e fácil de ler que o preto 100% */
+    line-height: 1.5;
+    background-color: white;
+}
+
+/* --- ESTRUTURA PRINCIPAL --- */
+main {
+    display: flex;
+    gap: 30px; /* Distância entre a coluna esquerda e direita */
+    max-width: 210mm; /* Limita a largura ao tamanho de um A4 para visualização na tela */
+    margin: 0 auto; /* Centraliza na tela do PC */
+}
+
+.esquerda {
+    flex: 2; /* Ocupa 2 partes do espaço */
+    padding: 10px 0;
+}
+
+.direita {
+    flex: 1; /* Ocupa 1 parte do espaço */
+    background-color: #f4f6f8; /* Um cinza azulado bem leve, mais corporativo que o bege */
+    padding: 25px 20px;
+    border-radius: 8px;
+    /* Comandos vitais para forçar o navegador a imprimir a cor de fundo */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* --- TIPOGRAFIA E ELEMENTOS VISUAIS --- */
+h1 {
+    font-size: 24px;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    text-align: left; /* Alinhado à esquerda fica mais moderno em currículos de duas colunas */
+}
+
+h3.titulo-secao {
+    font-size: 14px;
+    color: #007bb5; /* Um azul corporativo para guiar a leitura */
+    margin-top: 25px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h4 {
+    font-size: 15px;
+    color: #1a1a1a;
+    margin-top: 15px;
+}
+
+/* Linhas separadoras */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #007bb5;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* --- CONTATOS --- */
+.dados-pessoais {
+    font-style: normal;
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.dados-pessoais p {
+    display: flex; /* O segredo para alinhar ícones e textos perfeitamente */
+    align-items: center; 
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.icone {
+    width: 14px; /* Garante que os ícones fiquem todos do mesmo tamanho discreto */
+    height: 14px;
+}
+
+/* --- EXPERIÊNCIA E RESUMO --- */
+.texto-justificado {
+    text-align: justify;
+    font-size: 13.5px;
+}
+
+.cargo-data {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.lista-atividades {
+    padding-left: 18px;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.lista-atividades li {
+    margin-bottom: 6px;
+}
+
+/* --- COLUNA DIREITA (Formação e Skills) --- */
+.direita h3.titulo-secao {
+    margin-top: 0; /* Remove margem do topo do primeiro item */
+}
+
+.direita section {
+    margin-bottom: 30px; /* Espaçamento entre as caixas da direita */
+}
+
+.formacao-item p {
+    font-size: 13px;
+    color: #444;
+}
+
+.data-destaque {
+    font-weight: bold;
+    color: #007bb5;
+    margin-top: 4px;
+}
+
+.lista-simples {
+    list-style-type: square; /* Um formato de lista mais moderno */
+    padding-left: 15px;
+    font-size: 13.5px;
+}
+
+.lista-simples li {
+    margin-bottom: 5px;
+}
+
+/* --- REGRA DE IMPRESSÃO EXTRA (Para garantir que não corte nada no meio) --- */
+@media print {
+    .experiencia-item {
+        break-inside: avoid; /* Impede que uma experiência seja cortada entre duas páginas */
+    }
+}
